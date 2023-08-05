@@ -1,0 +1,472 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primary: #c69963;
+    --color-primary-dark: #b28451;
+    --color-secondary: rgb(16, 29, 44);
+    --color-grey-light-1: #f9f7f6;
+    --color-grey-light-2: #aaa;
+    --color-grey-dark-1: #54483a;
+    --color-grey-dark-2: #6d5d4b;
+    --font-primary: "Nunito", sans-serif;
+    --font-display: "Josefin Sans", sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    width: 100%;
+    height: auto;
+    font-family: var(--font-primary);
+}
+
+.container{
+    
+    display: grid;
+    grid-template-columns: 7rem 1fr repeat(6,20rem) 1fr;
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    grid-template-areas: "nav header header header header header realtors realtors realtors"
+                         "nav . services services services services services services."
+                         "nav goals goals goals goals story story story story"
+                         "nav . homes homes homes homes homes homes ."
+                         "nav gallery gallery gallery gallery gallery gallery gallery gallery"
+                         "nav footer footer footer footer footer footer footer footer";
+}
+
+.nav{
+    grid-area: nav;
+    background-color: #c69963;
+    padding-top:1.5rem ;
+}
+nav {
+    cursor: pointer;
+    width: 3.3rem;
+    height: 2.6rem;
+    position: relative;
+    top: 0;
+    left: 20%;
+}
+  
+.nav nav .nav-icon {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-grey-light-1);
+    position: relative;
+    top: 1rem;
+}
+
+.nav nav .nav-icon::before,
+.nav nav .nav-icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-grey-light-1);
+  top: -1rem;
+}
+
+.nav nav .nav-icon::after {
+  top: 1rem;
+}
+
+.header{
+    grid-area: header;
+    background: linear-gradient(rgba(16, 29, 44, 0.8), rgba(16, 29, 44, 0.8)),url("./images/hero.jpeg") no-repeat center center/cover;
+    display: grid;
+    grid-template-rows: minmax(5rem, 1fr) repeat(2,min-content) minmax(5rem, 1fr) repeat(2,min-content);
+    padding: 4rem 7rem;
+    grid-gap: 1.6rem;
+}
+.header .logo{
+    justify-self: center;
+    align-self: self-start;
+}
+.header .logo img{
+    height: 3rem;
+}
+.header h4{
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    font-family: var(--font-primary);
+}
+.header h1{
+    font-size: 3rem;
+    color: var(--color-grey-light-1);
+    font-family: var(--font-display);
+
+}
+.header button{
+    justify-self: start;
+    align-self: start;
+    border: none;
+    width: 22rem;
+    height: 5rem;
+    /* margin-top: 2rem; */
+    background-color: var(--color-primary);
+    color: var(--color-grey-light-1);
+    font-size: 1.6rem;
+    font-family: var(--font-display);
+    font-weight: 300;
+    padding: 1.2rem 1.4rem;
+    cursor: pointer;
+  /* border: none; */
+
+}
+.header button:hover{
+    background-color: #b28451;
+}
+.header .seenon {
+    font-size: 1.5rem;
+    font-family: var(--font-display);
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    grid-gap: 1.5rem;
+}
+
+.header .seenon::before,
+.header .seenon::after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    display: block;
+    background: white;
+}
+
+.header .logos{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-between;
+
+}
+
+.header .logos img{
+    height: 3.5rem;
+} 
+
+
+.realtors{
+    grid-area: realtors;
+    background-color: var(--color-secondary);
+    display: grid;
+    color: white;
+    justify-content: center;  
+    /* grid-column-gap: 2rem; */
+     grid-row-gap: 3rem; 
+}
+.realtors h1{
+    margin-top: 15rem;
+    justify-self: center;
+    font-family: var(--font-display);
+}
+.realtors .realtorslist{
+    display: grid;
+    grid-template-columns: min-content max-content;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2vh;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20rem;
+}
+.realtors img{
+    height: 7rem;
+    border-radius: 50%;
+
+}
+
+.services{
+    grid-area: services;
+    display: grid;
+    /* padding: 10rem 0; */
+    grid-template-columns: repeat(auto-fit, minmax(30rem , 1fr));
+    grid-column-gap: 2rem ;
+    grid-row-gap: 8rem ;
+    margin: 20rem 0;
+
+
+}
+.services .service{
+    /* background-color: #101d2c; */
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 2rem;
+    align-content: start;
+}
+
+.services .service .serviceicon{
+    font-size: 4.5rem;
+    grid-row: 1 / span 2;
+    color: var(--color-primary);
+    transform: translateY(-1rem);
+}
+.services .service .serviceheading{
+    font-size: 2rem;
+    font-family: var(--font-display);
+}
+.services .service .serviceContent{
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+}
+.goals{
+    grid-area: goals;
+    background: linear-gradient(rgba(226, 238, 53, 0.2), rgba(245, 214, 42, 0.5)), url(./images/back.jpg) no-repeat center center/cover;
+    display: grid;
+    /* justify-content: center; */
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+.goals .img1{
+    width: 70%;
+    height: 50%;
+}
+.goals .img2{
+    width: 60%;
+    height: 40%;
+    position: absolute;
+    left: 38rem;
+    bottom:  8rem;
+}
+
+
+
+
+.story{
+    grid-area:story ;
+    background-color: #f9f7f6;
+    display: grid;
+    padding: 18rem 12rem;
+    grid-template-rows: repeat(4,min-content);
+    grid-row-gap: 2rem;
+}
+.story h3{
+    font-size: 1.7rem;
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-weight: 500;
+
+}
+.story p{
+    font-size: 1.7rem;
+    font-weight: 300;
+    font-style: italic;
+    font-family: var(--font-display);
+
+
+}
+.story h1{
+    font-size: 3.2rem;
+    font-style: italic;
+    font-weight: 400;
+    font-style: italic;
+
+   
+    
+}
+.story button{
+    width: 20rem;
+    border: none;
+    background-color: var(--color-primary);
+    height: 5rem;
+    background-color: var(--color-primary);
+    color: var(--color-grey-light-1);
+    font-size: 1.7rem;
+    font-family: var(--font-display);
+    font-weight: 300;
+    padding: 1.2rem 1.4rem;
+    cursor: pointer;
+}
+.story button:hover{
+    background-color: var(--color-primary-dark);
+
+}
+.homes{
+    grid-area: homes;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 10rem;
+    margin: 14rem 0;
+}
+.homes .home{
+    display: grid;
+     grid-template-columns: repeat(2, 1fr);
+    background: var(--color-grey-light-1);
+    justify-items: center;
+     align-items: center;
+}
+.homes .home .home-img{
+    grid-column: 1 / span 2;
+    background: lightcoral;
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+.homes .home .home-img .h-img{
+    width: 100%;
+}
+.homes .home .home-img .homebtn{
+    background: black;
+    color: white;
+    font-size: 1.8rem;
+    font-family: var(--font-display);
+    width: 80%;
+    padding: 1.5rem 0;
+    position: absolute;
+    bottom: -2rem;
+    left: 10%;
+}
+.homes .home .home-img .flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.homes .home .homeinfo{
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    font-family: var(--font-display);
+    color: var(--color-grey-dark-2);
+}
+.homes .home .contactbtn{
+    grid-column: 1 / span 2;
+    background: var(--color-primary);
+    justify-self: stretch;
+    align-self: stretch;
+    padding: 1.7rem;
+    font-size: 2rem;
+    font-family: var(--font-display);
+    color: white;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.homes .home .contactbtn:hover{
+    background-color: var(--color-primary-dark);
+}
+.homes .home .flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}   
+
+.gallery{
+    grid-area: gallery;
+    background-color: var(--color-grey-light-1);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 6vw);
+    grid-gap: 1.5rem;
+    padding: 1.5rem;
+}
+.gallery img{
+    width: 100%;
+    height: 100%;
+}
+.gallery img:first-child{
+    grid-column: 1/span 2 ;
+    grid-row: 1/span 2;
+}
+.gallery img:nth-child(2){
+    grid-column: 3/span 3 ;
+    grid-row: 1/span 3;
+}
+.gallery img:nth-child(3){
+    grid-column: 6/span 1 ;
+    grid-row: 1/span 2;
+}
+.gallery img:nth-child(4){
+    grid-column: 7 / span 2;
+    grid-row: 1 / span 2;
+}
+.gallery img:nth-child(5){
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 3;
+}
+.gallery img:nth-child(6){
+    grid-column: 3 / span 2;
+    grid-row: 4 / span 2;
+
+}
+.gallery img:nth-child(7){
+    grid-column: 5 / span 1;
+    grid-row: 4 / span 1;
+}
+.gallery img:nth-child(8){
+    grid-column: 6 / span 2;
+    grid-row: 3 / span 2;
+}
+.gallery img:nth-child(9){
+    grid-column: 8/ span 1;
+    grid-row: 3 / span 3;
+}
+.gallery img:nth-child(10){
+    grid-column: 1 / span 1;
+    grid-row: 6 / span 2;
+}
+.gallery img:nth-child(11){
+    grid-column: 2 / span 2;
+    grid-row: 6 / span 2;
+}
+.gallery img:nth-child(12){
+    grid-column: 4 / span 1;
+    grid-row: 6 / span 2;
+}
+.gallery img:nth-child(13){
+    grid-column: 5 / span 3;
+    grid-row: 5 / span 3;
+
+}
+.gallery img:nth-child(14){
+    grid-column: 8 / span 1;
+    grid-row: 6 / span 2;
+}
+.footer{
+    grid-area: footer;
+  background: var(--color-secondary);
+  padding: 3rem;
+  text-align: center;
+  
+    
+
+}
+.footer f-btn{
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  color: white;
+  justify-items: center;
+  grid-gap: 3rem;
+  align-items: center;
+}
+.footer button{
+    width: 20rem;
+    height: 5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-grey-light-1);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--font-display);
+    font-weight: 300;
+
+}
+.footer button:hover{
+    background-color: #263b53;
+}
+.footer p{
+    font-size: 1.4rem;
+  color: white;
+  width: 70%;
+  margin: 0 auto;
+    margin-top: 0px;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+@media only screen and (max-width: 786px){ }
